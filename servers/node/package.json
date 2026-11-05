@@ -1,0 +1,9 @@
+{
+  "name": "site-review-kit-server",
+  "version": "1.0.0",
+  "description": "Node.js backend for Site Review Kit. Zero dependencies.",
+  "main": "server.js",
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "scripts": { "start": "node server.js" }
+}

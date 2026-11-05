@@ -9,16 +9,16 @@
      data-reveal=".reveal:is-in"     Force scroll-reveal elements visible in review mode:
                                      "<selector>:<class to add>".
      data-css="none"                 Don't auto-load review.css from the script's folder.
-   One-tag install from the API host:
-     <script src="https://your-review-api.pages.dev/review.js" defer></script>
+   One-tag install from the API host (the API must be at "api" next to review.js):
+     <script src="https://review.example.com/review.js" defer></script>
    Events: document fires "sitereview:enter" and "sitereview:exit". */
 (() => {
   const tag = document.currentScript;
   const CFG = Object.assign({}, tag ? tag.dataset : {}, window.SiteReviewConfig || {});
   const SRC = tag && tag.src ? new URL(tag.src, location.href) : null;
   const remote = SRC && SRC.origin !== location.origin;
-  // Loaded from another domain (the API host)? Then the API and stylesheet live there too.
-  const BASE = String(CFG.api || (remote ? SRC.origin + '/api' : '/api')).replace(/\/+$/, '');
+  // Loaded from another domain (the API host)? Then the API is in an "api" folder next to the script.
+  const BASE = String(CFG.api || (remote ? new URL('api', SRC).href : '/api')).replace(/\/+$/, '');
   if (SRC && CFG.css !== 'none' && !document.querySelector('link[href*="review.css"]')) {
     const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = new URL('review.css', SRC).href; document.head.appendChild(l);
   }

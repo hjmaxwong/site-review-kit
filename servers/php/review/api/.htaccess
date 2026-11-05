@@ -1,0 +1,8 @@
+# Send /review/api/items, /review/api/auth, ... to index.php (Apache / LiteSpeed with mod_rewrite)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+# Pass the passcode header through on hosts that strip custom headers
+SetEnvIf X-Review-Key "(.*)" HTTP_X_REVIEW_KEY=$1

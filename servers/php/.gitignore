@@ -1,0 +1,6 @@
+review/api/config.php
+review/api/data/*.sqlite*
+review/api/data/.ht.*
+# copied in from client/ when you install
+review/review.js
+review/review.css
