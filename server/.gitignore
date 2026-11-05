@@ -1,0 +1,6 @@
+.dev.vars
+.wrangler/
+node_modules/
+# copied in from client/ at deploy time
+public/review.js
+public/review.css

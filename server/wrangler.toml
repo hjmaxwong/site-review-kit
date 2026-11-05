@@ -1,0 +1,11 @@
+# Site Review Kit API (Cloudflare Pages Functions + D1)
+# 1. Change `name` to your Pages project name.
+# 2. Run: npx wrangler d1 create <db-name>   and paste the database_id below.
+name = "my-site-review"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "./public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "my-site-review"
+database_id = "PASTE-DATABASE-ID-HERE"

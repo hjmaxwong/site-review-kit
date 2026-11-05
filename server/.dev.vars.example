@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local testing (never deploy or commit .dev.vars)
+REVIEW_PASSCODE=change-me
+# Only needed when the website is on a different domain from the API:
+# ALLOWED_ORIGINS=http://localhost:5500,https://client-site.com
